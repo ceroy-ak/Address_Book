@@ -46,7 +46,15 @@ body{
 
 /*Contacts Heading*/
 
-#contacts-heading {
+#heading {
     padding: 40px 40px 30px 20px;
 }
 
+/*Form*/
+
+form {
+    width: 50%;
+    border: 5px solid black;
+    float: right;
+    display: none;
+}
