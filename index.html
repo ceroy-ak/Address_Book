@@ -65,19 +65,26 @@
         <form id="form">
 
             <label for="form-name">Name</label>
+            <br>
             <input type="text" name="name" id="form-name" required>
-
+            <small id="form-name-error">Names can only contain alphabets</small>
+            <br>
             <label for="form-email">Email</label>
+            <br>
             <input type="email" name="email" id="form-email" required>
-
+            <small id="form-email-error">Enter valid email id</small>
+            <br>
             <label for="form-mobile">Mobile</label>
             <input type="tel" name="mobile" id="form-mobile" required>
+            <small id="form-mobile-error">Mobile numbers must start with +91 followed by 10 digits</small>
 
             <label for="form-landline">Landline</label>
             <input type="tel" name="landline" id="form-landline" required>
+            <small id="form-landline-error">Landline numbers must start with state code</small>
 
             <label for="form-website">Website</label>
             <input type="url" name="website" id="form-website" required>
+            <small id="form-website-error">Enter valid url eg. https://www.google.com</small>
 
             <label for="form-address">Address</label>
             <textarea name="address" id="form-address" cols="30" rows="10" required></textarea>

@@ -137,11 +137,11 @@ function displaySelectedContact(contact) {
     const website = document.getElementById('selected-website').lastChild;
     const address = document.getElementById('selected-address').lastChild;
     const id = document.getElementById('selected-id');
-    document.getElementById('form').style.visibility = "hidden";
+    document.getElementById('form').style.display = "none";
 
     const div = document.getElementById('contact-selected');
 
-    div.style.visibility = "visible";
+    div.style.display = "block";
     name.innerText = contact.name;
     email.innerText = contact.email;
     mobile.innerText = contact.mobile;
@@ -202,27 +202,28 @@ function contactDetailsForm(id) {
 document.addEventListener('DOMContentLoaded', displayContactList());
 var homeBtn = document.getElementById('home').addEventListener('click', (e) => {
     selectedContact(NaN);
-    document.getElementById('contact-selected').style.visibility = "hidden";
-    document.getElementById('form').style.visibility = "hidden";
+    document.getElementById('contact-selected').style.display = "none";
+    document.getElementById('form').style.display = "none";
 });
 
 var selectedDeleteBtn = document.getElementById('selected-delete').addEventListener('click', (e) => {
     let id = document.getElementById('selected-id').value;
     deleteContact(id);
-    document.getElementById('contact-selected').style.visibility = "hidden";
-    document.getElementById('form').style.visibility = "hidden";
+    document.getElementById('contact-selected').style.display = "none";
+    document.getElementById('form').style.display = "none";
 });
 
 var addBtn = document.getElementById('add').addEventListener('click', (e) => {
-    document.getElementById('form').style.visibility = "visible";
+    document.getElementById('contact-selected').style.display = "none";
+    document.getElementById('form').style.display = "block";
     contactDetailsForm();
 });
 
 var selectedEditBtn = document.getElementById('selected-edit').addEventListener('click', (e) => {
     let id = document.getElementById('selected-id').value;
     contactDetailsForm(id);
-    document.getElementById('contact-selected').style.visibility = "hidden";
-    document.getElementById('form').style.visibility = "visible";
+    document.getElementById('contact-selected').style.display = "none";
+    document.getElementById('form').style.display = "block";
 });
 
 var form = document.getElementById('form').addEventListener('submit', (e) => {
@@ -243,5 +244,81 @@ var form = document.getElementById('form').addEventListener('submit', (e) => {
         editContact(newContact, idVal);
     }
 
-    e.target.style.visibility = "hidden";
+    e.target.style.display = "none";
+});
+
+
+/*Form Validation for Name */
+var inputName = document.getElementById('form-name');
+var inputNameErrorMessage = document.getElementById('form-name-error');
+inputName.addEventListener('keyup', (e) => {
+    let regex = /^[a-zA-Z]+$/g;
+    if (!regex.test(e.target.value)) {
+        inputName.classList.add('form-error');
+        inputNameErrorMessage.style.display = "block";
+    }
+    else {
+        inputName.classList.remove('form-error');
+        inputNameErrorMessage.style.display = "none";
+    }
+});
+
+/*Form Validation for Emails */
+var inputEmail = document.getElementById('form-email');
+var inputEmailErrorMessage = document.getElementById('form-email-error');
+inputEmail.addEventListener('keyup', (e) => {
+    let regex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/g;
+    if (!regex.test(e.target.value)) {
+        inputEmail.classList.add('form-error');
+        inputEmailErrorMessage.style.display = "block";
+    }
+    else {
+        inputEmail.classList.remove('form-error');
+        inputEmailErrorMessage.style.display = "none";
+    }
+});
+
+/*Form Validation for Mobile number */
+var inputMobile = document.getElementById('form-mobile');
+var inputMobileErrorMessage = document.getElementById('form-mobile-error');
+inputMobile.addEventListener('keyup', (e) => {
+    let regex = /^\+91[ -]?[\d]{10}/g;
+    if (!regex.test(e.target.value)) {
+        inputMobile.classList.add('form-error');
+        inputMobileErrorMessage.style.display = "block";
+    }
+    else {
+        inputMobile.classList.remove('form-error');
+        inputMobileErrorMessage.style.display = "none";
+    }
+});
+
+/*Form Validation for Landline number */
+var inputLandline = document.getElementById('form-landline');
+var inputLandlineErrorMessage = document.getElementById('form-landline-error');
+inputLandline.addEventListener('keyup', (e) => {
+    let regex = /[a-zA-Z]/;
+    if (!regex.test(e.target.value)) {
+        inputLandline.classList.add('form-error');
+        inputLandlineErrorMessage.style.display = "block";
+    }
+    else {
+        inputLandline.classList.remove('form-error');
+        inputLandlineErrorMessage.style.display = "none";
+    }
+});
+
+/*Form validation for Website*/
+var inputWebsite = document.getElementById('form-website');
+var inputWebsiteErrorMessage = document.getElementById('form-website-error');
+inputWebsite.addEventListener('keyup', (e) => {
+    let regex = /^(https|http):\/\/[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z]+$/g;
+    if (!regex.test(e.target.value)) {
+        inputWebsite.classList.add('form-error');
+        inputWebsiteErrorMessage.style.display = "block";
+    }
+    else {
+        inputWebsite.classList.remove('form-error');
+        inputWebsiteErrorMessage.style.display = "none";
+    }
 });

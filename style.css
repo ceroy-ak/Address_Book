@@ -87,7 +87,8 @@ body{
 /*Selected Contact Display*/
 
 #contact-selected{
-    visibility: hidden;
+    /* visibility: hidden; */
+    display: none;
     float: right;
     margin-right: 300px;
 }
@@ -144,8 +145,37 @@ padding: 10px 0px 20px 0px;
 /*Form*/
 
 #form {
-    width: 50%;
+    width: 40%;
     border: 5px solid black;
     float: right;
-    visibility: hidden;
+    /* visibility: hidden; */
+    display: none;
+    position: absolute;
+    left: 600px;
+}
+
+.form-error{
+    border: 1px solid red;
+}
+
+#form-name-error{
+    color: red;
+    display: none;
+}
+#form-email-error{
+    color: red;
+    display: none;
+}
+
+#form-mobile-error{
+    color: red;
+    display: none;
+}
+#form-landline-error{
+    color: red;
+    display: none;
+}
+#form-website-error{
+    color: red;
+    display: none;
 }
