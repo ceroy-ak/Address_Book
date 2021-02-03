@@ -228,11 +228,12 @@ var selectedEditBtn = document.getElementById('selected-edit').addEventListener(
 
 var form = document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
+
     let nameVal = e.target[0].value;
     let emailVal = e.target[1].value;
-    let websiteVal = e.target[2].value;
-    let mobileVal = e.target[3].value;
-    let landlineVal = e.target[4].value;
+    let mobileVal = e.target[2].value;
+    let landlineVal = e.target[3].value;
+    let websiteVal = e.target[4].value;
     let addressVal = e.target[5].value;
     let idVal = e.target[6].value;
 
@@ -252,7 +253,7 @@ var form = document.getElementById('form').addEventListener('submit', (e) => {
 var inputName = document.getElementById('form-name');
 var inputNameErrorMessage = document.getElementById('form-name-error');
 inputName.addEventListener('keyup', (e) => {
-    let regex = /^[a-zA-Z]+$/g;
+    let regex = /^[a-zA-Z\s]+$/g;
     if (!regex.test(e.target.value)) {
         inputName.classList.add('form-error');
         inputNameErrorMessage.style.display = "block";
@@ -267,7 +268,7 @@ inputName.addEventListener('keyup', (e) => {
 var inputEmail = document.getElementById('form-email');
 var inputEmailErrorMessage = document.getElementById('form-email-error');
 inputEmail.addEventListener('keyup', (e) => {
-    let regex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/g;
+    let regex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}/g;
     if (!regex.test(e.target.value)) {
         inputEmail.classList.add('form-error');
         inputEmailErrorMessage.style.display = "block";
@@ -293,20 +294,6 @@ inputMobile.addEventListener('keyup', (e) => {
     }
 });
 
-/*Form Validation for Landline number */
-var inputLandline = document.getElementById('form-landline');
-var inputLandlineErrorMessage = document.getElementById('form-landline-error');
-inputLandline.addEventListener('keyup', (e) => {
-    let regex = /[a-zA-Z]/;
-    if (!regex.test(e.target.value)) {
-        inputLandline.classList.add('form-error');
-        inputLandlineErrorMessage.style.display = "block";
-    }
-    else {
-        inputLandline.classList.remove('form-error');
-        inputLandlineErrorMessage.style.display = "none";
-    }
-});
 
 /*Form validation for Website*/
 var inputWebsite = document.getElementById('form-website');
