@@ -20,23 +20,16 @@ var contacts = new Array(
 );
 
 
-function addContact(name, email, mobile, landline, website, address) {
-    let contact = new Contact(name, email, mobile, landline, website, address);
+function addContact(contact) {
     contacts.push(contact);
     displayContactList(contact);
 }
 
-function editContact(id, name, email, mobile, landline, website, address) {
-    contacts.forEach((contact) => {
-        if (contact.id === id) {
-            contact.name = name;
-            contact.email = email;
-            contact.mobile = mobile;
-            contact.landline = landline;
-            contact.website = website;
-            contact.address = address;
-        }
-    });
+function editContact(newContact, oldId) {
+    deleteContact(oldId);
+    newContact.id = oldId;
+    Contact.id--;
+    addContact(newContact);
 }
 
 function deleteContact(id) {
@@ -113,8 +106,8 @@ function displayContactList(param) {
 
         div.addEventListener('click', () => {
             selectedContact(div.id);
-            displaySelectedContact(contact);
-            
+            displaySelectedContact(param);
+
         });
 
         contactList.appendChild(div);
@@ -136,7 +129,7 @@ function selectedContact(id) {
 
 }
 
-function displaySelectedContact(contact){
+function displaySelectedContact(contact) {
     const name = document.getElementById('selected-name');
     const email = document.getElementById('selected-email').lastChild;
     const mobile = document.getElementById('selected-mobile').lastChild;
@@ -158,21 +151,97 @@ function displaySelectedContact(contact){
     id.value = contact.id;
 }
 
-function contactForm(id) {
+function contactDetailsForm(id) {
+
+    //Reference to all the input fields
+    const formName = document.getElementById('form-name');
+    const formEmail = document.getElementById('form-email');
+    const formMobile = document.getElementById('form-mobile');
+    const formLandline = document.getElementById('form-landline');
+    const formWebsite = document.getElementById('form-website');
+    const formAddress = document.getElementById('form-address');
+    const formId = document.getElementById('form-id');
+
+    //Initial Values for Add
+    let nameVal = '';
+    let emailVal = '';
+    let websiteVal = '';
+    let mobileVal = '';
+    let landlineVal = '';
+    let addressVal = '';
+    let idVal = '';
+
+    //Populate Values for edit
+    if (id != undefined) {
+        for (var i = 0; i < contacts.length; i++) {
+            if (contacts[i].id == id) {
+                nameVal = contacts[i].name;
+                emailVal = contacts[i].email;
+                websiteVal = contacts[i].website;
+                mobileVal = contacts[i].mobile;
+                landlineVal = contacts[i].landline;
+                addressVal = contacts[i].address;
+                idVal = contacts[i].id;
+                break;
+            }
+        }
+    }
+
+    formName.value = nameVal;
+    formEmail.value = emailVal;
+    formMobile.value = mobileVal;
+    formLandline.value = landlineVal;
+    formWebsite.value = websiteVal;
+    formAddress.value = addressVal;
+    formId.value = idVal;
 
 }
 
+
 /* All Event Listeners Globals*/
 document.addEventListener('DOMContentLoaded', displayContactList());
-var homeBtn = document.getElementById('home').addEventListener('click',(e)=>{
+var homeBtn = document.getElementById('home').addEventListener('click', (e) => {
     selectedContact(NaN);
     document.getElementById('contact-selected').style.visibility = "hidden";
     document.getElementById('form').style.visibility = "hidden";
 });
 
-var selectedDeleteBtn = document.getElementById('selected-delete').addEventListener('click',(e)=>{
+var selectedDeleteBtn = document.getElementById('selected-delete').addEventListener('click', (e) => {
     let id = document.getElementById('selected-id').value;
     deleteContact(id);
     document.getElementById('contact-selected').style.visibility = "hidden";
     document.getElementById('form').style.visibility = "hidden";
-}); 
+});
+
+var addBtn = document.getElementById('add').addEventListener('click', (e) => {
+    document.getElementById('form').style.visibility = "visible";
+    contactDetailsForm();
+});
+
+var selectedEditBtn = document.getElementById('selected-edit').addEventListener('click', (e) => {
+    let id = document.getElementById('selected-id').value;
+    contactDetailsForm(id);
+    document.getElementById('contact-selected').style.visibility = "hidden";
+    document.getElementById('form').style.visibility = "visible";
+});
+
+var form = document.getElementById('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    let nameVal = e.target[0].value;
+    let emailVal = e.target[1].value;
+    let websiteVal = e.target[2].value;
+    let mobileVal = e.target[3].value;
+    let landlineVal = e.target[4].value;
+    let addressVal = e.target[5].value;
+    let idVal = e.target[6].value;
+
+    let newContact = new Contact(nameVal, emailVal, mobileVal, landlineVal, websiteVal, addressVal);
+    if (idVal == '') {
+        addContact(newContact);
+    }
+    else {
+        editContact(newContact, idVal);
+    }
+
+    e.target.style.visibility = "hidden";
+});

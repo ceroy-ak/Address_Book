@@ -63,25 +63,26 @@
 
         <!--Form-->
         <form id="form">
-            
+
             <label for="form-name">Name</label>
-            <input type="text" id="form-name">
+            <input type="text" name="name" id="form-name" required>
 
             <label for="form-email">Email</label>
-            <input type="email" id="form-email">
+            <input type="email" name="email" id="form-email" required>
 
             <label for="form-mobile">Mobile</label>
-            <input type="tel" name="mobile" id="form-mobile">
+            <input type="tel" name="mobile" id="form-mobile" required>
 
             <label for="form-landline">Landline</label>
-            <input type="tel" name="landline" id="form-landline">
+            <input type="tel" name="landline" id="form-landline" required>
 
             <label for="form-website">Website</label>
-            <input type="url" name="website" id="form-website">
+            <input type="url" name="website" id="form-website" required>
 
             <label for="form-address">Address</label>
-            <textarea name="address" id="form-address" cols="30" rows="10"></textarea>
+            <textarea name="address" id="form-address" cols="30" rows="10" required></textarea>
 
+            <input type="hidden" id="form-id" value="">
             <input type="submit" value="submit">
         </form>
 
