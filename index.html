@@ -19,8 +19,8 @@
         <!--Navigation Bar-->
         <div class="navigation">
 
-            <button id="HOME">HOME</button>
-            <button id="ADD">+ADD</button>
+            <button id="home">HOME</button>
+            <button id="add">+ADD</button>
 
             <img src="res/blog-icon.png" alt="Blog Icon">
         </div>
@@ -32,32 +32,56 @@
         <h4 id="heading">CONTACTS</h4>
 
         <!--Contacts List-->
-        <div class="contacts-list">
-            <div class="contact">
-
-            </div>
-        </div>
+        <div class="contacts-list"></div>
 
         <!--Contact Display-->
-        <div id="contact-display">
+        <div id="contact-selected">
 
+            <h1 id="selected-name">Praveen Battula</h1>
+            <input id="selected-id" type="hidden" value="NaN">
+            <div id="selected-buttons">
+                <button id="selected-edit">
+                    <img src="res/Edit-icon.png" alt="Edit">
+                    EDIT
+                </button>
+                <button id="selected-delete">
+                    <img src="res/delete1.png" alt="Delete">
+                    DELETE
+                </button>
+            </div>
 
+            <p id="selected-email">Email: <span>praveen@technovert.com</span></p>
+
+            <p id="selected-mobile">Mobile: <span>+91 923 345 2342</span></p>
+
+            <p id="selected-landline">Landline: <span>040 30 1231211</span></p>
+
+            <p id="selected-website">Website: <span>http://www.technovert.com</span></p>
+
+            <p id="selected-address">Address: <span>123 now here some street Madhapur, Hyderabad 500000</span></p>
         </div>
 
         <!--Form-->
-        <form id="contact-form">
-            <label for="name">Name</label> 
-            <input type="text" id="name">
-            <label for="email">Email</label>
-            <input type="email" id="email">
-            <label for="mobile">Mobile</label>
-            <input type="tel" name="mobile" id="mobile">
-            <label for="landline">Landline</label>
-            <input type="tel" name="landline" id="landline">
-            <label for="website">Website</label>
-            <input type="url" name="website" id="website">
-            <label for="address">Address</label>
-            <textarea name="address" id="address" cols="30" rows="10"></textarea>
+        <form id="form">
+            
+            <label for="form-name">Name</label>
+            <input type="text" id="form-name">
+
+            <label for="form-email">Email</label>
+            <input type="email" id="form-email">
+
+            <label for="form-mobile">Mobile</label>
+            <input type="tel" name="mobile" id="form-mobile">
+
+            <label for="form-landline">Landline</label>
+            <input type="tel" name="landline" id="form-landline">
+
+            <label for="form-website">Website</label>
+            <input type="url" name="website" id="form-website">
+
+            <label for="form-address">Address</label>
+            <textarea name="address" id="form-address" cols="30" rows="10"></textarea>
+
             <input type="submit" value="submit">
         </form>
 

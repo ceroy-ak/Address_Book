@@ -50,11 +50,102 @@ body{
     padding: 40px 40px 30px 20px;
 }
 
+
+
+/*Contacts List*/
+/*Contact*/
+.contacts-list{
+    display: inline-block;
+    width: 30%;
+    margin-right: 0px;
+}
+.contact {
+    border: 1px solid black;
+    margin-left: 20px;
+    padding: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.contact.selected {
+    background-color: #cee7f2;
+}
+
+.contact > .name {
+    font-weight: lighter;
+    padding-bottom: 5px;
+}
+
+.contact .email {
+    margin-left: 10px;
+}
+
+.contact .mobile {
+    margin-left: 10px;
+}
+
+/*Selected Contact Display*/
+
+#contact-selected{
+    visibility: hidden;
+    float: right;
+    margin-right: 300px;
+}
+
+#selected-buttons{
+    float: right;
+    padding-left: 500px;
+    position: relative;
+    bottom: 40px;
+}
+
+#selected-edit {
+background-color: white;
+border: 0px;
+font-size: 15px;
+padding: 0px 30px 0px 5px;
+}
+
+#selected-edit > img {
+    height: 18px;
+    width: 15px;
+    position: relative;
+    top: 3px;
+}
+
+#selected-delete{
+background-color: white;
+border: 0px;
+font-size: 15px;
+padding: 0px 30px 0px 5px;
+}
+
+#selected-delete > img {
+    height: 25px;
+    width: 15px;
+    position: relative;
+    top: 3px;
+    right: 5px;
+    
+}
+
+#selected-email{
+padding: 10px 0px 20px 0px;
+}
+
+#selected-website {
+    padding: 25px 0px;
+}
+
+#selected-address > span {
+    word-break: break-all;
+}
+
 /*Form*/
 
-form {
+#form {
     width: 50%;
     border: 5px solid black;
     float: right;
-    display: none;
+    visibility: hidden;
 }
