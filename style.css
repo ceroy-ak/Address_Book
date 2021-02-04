@@ -103,16 +103,14 @@ input[type='submit']{
 
 #selected-name{
     word-wrap: break-word;
-    
-    
 }
 
 
 #selected-edit {
-background-color: white;
-border: 0px;
-font-size: 15px;
-padding: 0px 30px 0px 5px;
+    background-color: white;
+    border: 0px;
+    font-size: 15px;
+    padding: 0px 30px 0px 5px;
 }
 
 #selected-edit > img {
@@ -123,10 +121,10 @@ padding: 0px 30px 0px 5px;
 }
 
 #selected-delete{
-background-color: white;
-border: 0px;
-font-size: 15px;
-padding: 0px 30px 0px 5px;
+    background-color: white;
+    border: 0px;
+    font-size: 15px;
+    padding: 0px 30px 0px 5px;
 }
 
 #selected-delete > img {
@@ -139,8 +137,8 @@ padding: 0px 30px 0px 5px;
 }
 
 #selected-email{
-padding: 15px 0px 20px 0px;
-word-wrap: break-word;
+    padding: 15px 0px 20px 0px;
+    word-wrap: break-word;
 
 }
 
@@ -154,9 +152,9 @@ word-wrap: break-word;
 }
 
 .selected-row{
-width: 100%;
-max-height: max-content;
-display: inline-block;
+    width: 100%;
+    max-height: max-content;
+    display: inline-block;
 }
 
 .selected-col-name{
@@ -169,6 +167,8 @@ display: inline-block;
     float: left;
     width: 60%;
 }
+
+
 /*Form*/
 
 #form {
@@ -181,17 +181,16 @@ display: inline-block;
 }
 
 #form > label {
-font-weight: bold;
-display: block;
-padding-bottom: 5px;
-margin-top: 10px;
+    font-weight: bold;
+    display: block;
+    padding-bottom: 5px;
+    margin-top: 10px;
 }
 
 #form > input {
     border: 1px solid black;
     height: 30px;
     width: 80%;
-    /* margin-bottom: 20px; */
 }
 
 
@@ -206,21 +205,15 @@ margin-top: 10px;
 
 #form-name-error{
     color: red;
-    /* position: absolute;
-    top: 105px; */
     display: none;
 }
 #form-email-error{
     color: red;
-    /* position: absolute;
-    top: 195px; */
     display: none;
 }
 
 #form-mobile-error{
     color: red;
-    /* position: absolute;
-    top: 260px; */
     width: 100%;
     display: none;
 }
@@ -228,8 +221,6 @@ margin-top: 10px;
 #form-website-error{
     color: red;
     display: none;
-    /* position: absolute;
-    top: 330px; */
 }
 
 #form-submit-btn {
@@ -250,10 +241,9 @@ margin-top: 10px;
 /*Form Mobile and Landline*/
 
 .form-row{
-
-width: 100%;
-max-height: max-content;
-display: inline-block;
+    width: 100%;
+    max-height: max-content;
+    display: inline-block;
 }
 
 .form-col-mob{
@@ -283,16 +273,16 @@ display: inline-block;
 
 #form-mobile-label {
     font-weight: bold;
-display: block;
-padding-bottom: 5px;
-margin-top: 10px;
+    display: block;
+    padding-bottom: 5px;
+    margin-top: 10px;
 
 }
 
 #form-landline-label{
     font-weight: bold;
-display: block;
-padding-bottom: 5px;
-margin-top: 10px;
+    isplay: block;
+    padding-bottom: 5px;
+    margin-top: 10px;
 
 }
