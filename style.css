@@ -55,9 +55,8 @@ body{
 /*Contacts List*/
 /*Contact*/
 .contacts-list{
-    display: inline-block;
     width: 30%;
-    margin-right: 0px;
+    float: left;
 }
 .contact {
     border: 1px solid black;
@@ -87,10 +86,10 @@ body{
 /*Selected Contact Display*/
 
 #contact-selected{
-    /* visibility: hidden; */
     display: none;
-    float: right;
-    margin-right: 300px;
+    width: 60%;
+    float: left;
+    margin-left: 90px;
 }
 
 #selected-buttons{
@@ -145,13 +144,11 @@ padding: 10px 0px 20px 0px;
 /*Form*/
 
 #form {
-    width: 50%;
     box-shadow: 0 0 15px 1px;
-    float: right;
     display: none;
-    position: absolute;
-    left: 600px;
-    bottom: 60px;
+    width: 55%;
+    float: left;
+    margin-left: 50px;
     padding: 40px 30px 30px 30px;
 }
 
