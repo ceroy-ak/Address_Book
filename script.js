@@ -162,6 +162,13 @@ function contactDetailsForm(id) {
     const formAddress = document.getElementById('form-address');
     const formId = document.getElementById('form-id');
 
+    // Remove display for all errors in form if any
+    document.getElementById('form-name-error').style.display = "none";
+    document.getElementById('form-name-email').style.display = "none";
+    document.getElementById('form-name-mobile').style.display = "none";
+    document.getElementById('form-name-website').style.display = "none";
+
+
     //Initial Values for Add
     let nameVal = '';
     let emailVal = '';
@@ -226,6 +233,7 @@ var selectedEditBtn = document.getElementById('selected-edit').addEventListener(
     document.getElementById('form').style.display = "block";
 });
 
+/* Form Submit Event Listener */
 var form = document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
 

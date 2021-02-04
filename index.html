@@ -74,11 +74,13 @@
             <input type="email" name="email" id="form-email" required>
             <small id="form-email-error">Enter valid email id</small>
             <br>
-            <label for="form-mobile">Mobile</label>
+            <label id="form-mobile-label" for="form-mobile">Mobile</label>
+            <label id="form-landline-label" for="form-landline">Landline</label>
+            <br>
             <input type="tel" name="mobile" id="form-mobile" required>
             <small id="form-mobile-error">Mobile numbers must start with +91 followed by 10 digits</small>
 
-            <label for="form-landline">Landline</label>
+
             <input type="tel" name="landline" id="form-landline" required>
 
             <label for="form-website">Website</label>
@@ -86,10 +88,10 @@
             <small id="form-website-error">Enter valid url eg. https://www.google.com</small>
 
             <label for="form-address">Address</label>
-            <textarea name="address" id="form-address" cols="30" rows="10" required></textarea>
+            <input type="text" name="address" id="form-address" required>
 
             <input type="hidden" id="form-id" value="">
-            <input type="submit" value="submit">
+            <input type="submit" value="Add" id="form-submit-btn">
         </form>
 
     </main>

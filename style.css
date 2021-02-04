@@ -145,37 +145,90 @@ padding: 10px 0px 20px 0px;
 /*Form*/
 
 #form {
-    width: 40%;
-    border: 5px solid black;
+    width: 50%;
+    box-shadow: 0 0 15px 1px;
     float: right;
-    /* visibility: hidden; */
     display: none;
     position: absolute;
     left: 600px;
+    bottom: 60px;
+    padding: 40px 30px 30px 30px;
 }
 
+#form > label {
+font-weight: bold;
+display: block;
+position: relative;
+}
+
+#form > input {
+    border: 1px solid black;
+    height: 30px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+
+#form-address {
+    border: 1px solid black;
+    height: 80px !important;
+}
 .form-error{
     border: 1px solid red;
 }
 
 #form-name-error{
     color: red;
+    position: absolute;
+    top: 105px;
     display: none;
 }
 #form-email-error{
     color: red;
+    position: absolute;
+    top: 195px;
     display: none;
 }
 
 #form-mobile-error{
     color: red;
+    position: absolute;
+    top: 260px;
     display: none;
 }
-#form-landline-error{
-    color: red;
-    display: none;
-}
+
 #form-website-error{
     color: red;
     display: none;
+    position: absolute;
+    top: 330px;
+}
+
+#form-submit-btn {
+    background-color: green;
+    color: white;
+    width: 20% !important;
+    position: relative;
+    top: 85px;
+    left: 5px;
+    float: right;
+}
+
+#form-mobile {
+    width: 38.3% !important;
+    display: inline !important;
+}
+
+#form-landline {
+    width: 38.3% !important;
+    margin-left: 20px !important;
+}
+
+#form-mobile-label {
+    display: inline !important;
+}
+
+#form-landline-label{
+    display: inline !important;
+    padding-left: 240px;
 }
