@@ -35,7 +35,7 @@
         <!--Contact Display-->
         <div id="contact-selected">
 
-            <h1 id="selected-name">Praveen Battula</h1>
+            <h1 id="selected-name"></h1>
             <input id="selected-id" type="hidden" value="NaN">
             <div id="selected-buttons">
                 <button id="selected-edit">
@@ -48,15 +48,15 @@
                 </button>
             </div>
 
-            <p id="selected-email">Email: <span>praveen@technovert.com</span></p>
+            <p id="selected-email">Email: <span></span></p>
 
-            <p id="selected-mobile">Mobile: <span>+91 923 345 2342</span></p>
+            <p id="selected-mobile">Mobile: <span></span></p>
 
-            <p id="selected-landline">Landline: <span>040 30 1231211</span></p>
+            <p id="selected-landline">Landline: <span></span></p>
 
-            <p id="selected-website">Website: <span>http://www.technovert.com</span></p>
+            <p id="selected-website">Website: <span></span></p>
 
-            <p id="selected-address">Address: <span>123 now here some street Madhapur, Hyderabad 500000</span></p>
+            <p id="selected-address">Address: <span></span></p>
         </div>
 
         <!--Form-->
@@ -86,9 +86,10 @@
             <small id="form-website-error">Enter valid url eg. https://www.google.com</small>
 
             <label for="form-address">Address</label>
-            <input type="text" name="address" id="form-address" required>
+            <textarea name="address" id="form-address" cols="84" rows="20"></textarea>
 
             <input type="hidden" id="form-id" value="">
+            <button type="button" id="form-cancel-btn">Cancel</button>
             <input type="submit" value="Add" id="form-submit-btn">
         </form>
 

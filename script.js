@@ -26,10 +26,33 @@ function addContact(contact) {
 }
 
 function editContact(newContact, oldId) {
-    deleteContact(oldId);
-    newContact.id = oldId;
+
+    //Updates the contact in contacts array
+    for(var i=0; i<contacts.length; i++)
+    {
+        if(contacts[i].id == oldId){
+            contacts[i].name = newContact.name;
+            contacts[i].email = newContact.email;
+            contacts[i].mobile = newContact.mobile;
+            contacts[i].landline = newContact.landline;
+            contacts[i].website = newContact.website;
+            contacts[i].address = newContact.address;
+            break;
+        }
+    }
+
+    //Updates the values in the Contact List
+
+    const div = document.getElementById(oldId);
+    const name = div.children[0];
+    const email = div.children[1];
+    const mobile = div.children[2];
+
+    name.innerText = newContact.name;
+    email.innerText = newContact.email;
+    mobile.innerText = newContact.mobile;
+
     Contact.id--;
-    addContact(newContact);
 }
 
 function deleteContact(id) {
@@ -161,6 +184,18 @@ function contactDetailsForm(id) {
     const formWebsite = document.getElementById('form-website');
     const formAddress = document.getElementById('form-address');
     const formId = document.getElementById('form-id');
+    const formSubmitBtn = document.getElementById('form-submit-btn');
+
+    //To preven submit event because of enter key
+    formName.onkeypress = (e) => e.key!="Enter";
+    formEmail.onkeypress = (e) => e.key!="Enter";
+    formMobile.onkeypress = (e) => e.key!="Enter";
+    formLandline.onkeypress = (e) => e.key!="Enter";
+    formWebsite.onkeypress = (e) => e.key!="Enter";
+    formAddress.onkeypress = (e) => e.key!="Enter";
+    
+
+
 
     // Remove display for all errors in form if any
     document.getElementById('form-name-error').style.display = "none";
@@ -177,6 +212,7 @@ function contactDetailsForm(id) {
     let landlineVal = '';
     let addressVal = '';
     let idVal = '';
+    let subButtonVal = 'Add';
 
     //Populate Values for edit
     if (id != undefined) {
@@ -189,6 +225,7 @@ function contactDetailsForm(id) {
                 landlineVal = contacts[i].landline;
                 addressVal = contacts[i].address;
                 idVal = contacts[i].id;
+                subButtonVal = 'Update';
                 break;
             }
         }
@@ -201,6 +238,7 @@ function contactDetailsForm(id) {
     formWebsite.value = websiteVal;
     formAddress.value = addressVal;
     formId.value = idVal;
+    formSubmitBtn.value = subButtonVal;
 
 }
 
@@ -232,6 +270,11 @@ var selectedEditBtn = document.getElementById('selected-edit').addEventListener(
     document.getElementById('contact-selected').style.display = "none";
     document.getElementById('form').style.display = "block";
 });
+
+var cancelButtonForm = document.getElementById('form-cancel-btn').addEventListener('click',(e)=>{
+    document.getElementById('home').click();
+});
+
 
 /* Form Submit Event Listener */
 var form = document.getElementById('form').addEventListener('submit', (e) => {
