@@ -164,9 +164,9 @@ function contactDetailsForm(id) {
 
     // Remove display for all errors in form if any
     document.getElementById('form-name-error').style.display = "none";
-    document.getElementById('form-name-email').style.display = "none";
-    document.getElementById('form-name-mobile').style.display = "none";
-    document.getElementById('form-name-website').style.display = "none";
+    document.getElementById('form-email-error').style.display = "none";
+    document.getElementById('form-mobile-error').style.display = "none";
+    document.getElementById('form-website-error').style.display = "none";
 
 
     //Initial Values for Add
