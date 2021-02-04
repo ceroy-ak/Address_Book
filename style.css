@@ -281,7 +281,7 @@ input[type='submit']{
 
 #form-landline-label{
     font-weight: bold;
-    isplay: block;
+    display: block;
     padding-bottom: 5px;
     margin-top: 10px;
 
