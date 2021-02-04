@@ -94,9 +94,9 @@ body{
 
 #selected-buttons{
     float: right;
-    padding-left: 500px;
     position: relative;
     bottom: 40px;
+    right: 100px;
 }
 
 #selected-edit {
