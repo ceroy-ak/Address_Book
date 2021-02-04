@@ -6,8 +6,7 @@
 }
 
 /*Body*/
-
-body{
+body  {
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -28,8 +27,9 @@ input[type='submit']{
 }
 
 .title > h1 {
-    font-size: 50px;
+    font-size: 60px;
     font-weight: lighter;
+    font-family: "Century Gothic", Helvetica, sans-serif;
 }
 
 /*Navigation Bar*/
@@ -102,9 +102,8 @@ input[type='submit']{
 }
 
 #selected-name{
-    width: 40%;
-    float: left;
     word-wrap: break-word;
+    
     
 }
 
@@ -140,8 +139,9 @@ padding: 0px 30px 0px 5px;
 }
 
 #selected-email{
-padding: 30px 0px 20px 0px;
+padding: 15px 0px 20px 0px;
 word-wrap: break-word;
+
 }
 
 #selected-website {
@@ -153,6 +153,22 @@ word-wrap: break-word;
     word-wrap: break-word;
 }
 
+.selected-row{
+width: 100%;
+max-height: max-content;
+display: inline-block;
+}
+
+.selected-col-name{
+    float: left;
+    width: 40%;
+
+}
+
+.selected-col-btn{
+    float: left;
+    width: 60%;
+}
 /*Form*/
 
 #form {
@@ -167,14 +183,15 @@ word-wrap: break-word;
 #form > label {
 font-weight: bold;
 display: block;
-position: relative;
+padding-bottom: 5px;
+margin-top: 10px;
 }
 
 #form > input {
     border: 1px solid black;
     height: 30px;
     width: 80%;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 
@@ -183,34 +200,36 @@ position: relative;
     height: 80px !important;
 }
 .form-error{
-    border: 1px solid red;
+    border: 1px solid red !important;
 }
+
 
 #form-name-error{
     color: red;
-    position: absolute;
-    top: 105px;
+    /* position: absolute;
+    top: 105px; */
     display: none;
 }
 #form-email-error{
     color: red;
-    position: absolute;
-    top: 195px;
+    /* position: absolute;
+    top: 195px; */
     display: none;
 }
 
 #form-mobile-error{
     color: red;
-    position: absolute;
-    top: 260px;
+    /* position: absolute;
+    top: 260px; */
+    width: 100%;
     display: none;
 }
 
 #form-website-error{
     color: red;
     display: none;
-    position: absolute;
-    top: 330px;
+    /* position: absolute;
+    top: 330px; */
 }
 
 #form-submit-btn {
@@ -226,21 +245,54 @@ position: relative;
     width: 20%;
     padding: 5px;
 }
+
+
+/*Form Mobile and Landline*/
+
+.form-row{
+
+width: 100%;
+max-height: max-content;
+display: inline-block;
+}
+
+.form-col-mob{
+    width: 40%;
+    float: left;
+}
+
+.form-col-landline{
+    width: 50%;
+    float: left;
+    margin-right: 10%;
+    
+}
 #form-mobile {
-    width: 38.3% !important;
-    display: inline !important;
+    border: 1px solid black;
+    height: 30px;
+    width: 80%;
+
 }
 
 #form-landline {
-    width: 38.3% !important;
-    margin-left: 20px !important;
+    border: 1px solid black;
+    height: 30px;
+    width: 80%;
+
 }
 
 #form-mobile-label {
-    display: inline !important;
+    font-weight: bold;
+display: block;
+padding-bottom: 5px;
+margin-top: 10px;
+
 }
 
 #form-landline-label{
-    display: inline !important;
-    padding-left: 240px;
+    font-weight: bold;
+display: block;
+padding-bottom: 5px;
+margin-top: 10px;
+
 }

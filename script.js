@@ -53,6 +53,8 @@ function editContact(newContact, oldId) {
     mobile.innerText = newContact.mobile;
 
     Contact.id--;
+
+    selectedContact(NaN);
 }
 
 function deleteContact(id) {
@@ -307,7 +309,7 @@ inputName.addEventListener('keyup', (e) => {
     let regex = /^[a-zA-Z\s]+$/g;
     if (!regex.test(e.target.value)) {
         inputName.classList.add('form-error');
-        inputNameErrorMessage.style.display = "block";
+        inputNameErrorMessage.style.display = "inline-block";
     }
     else {
         inputName.classList.remove('form-error');
@@ -322,7 +324,7 @@ inputEmail.addEventListener('keyup', (e) => {
     let regex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}/g;
     if (!regex.test(e.target.value)) {
         inputEmail.classList.add('form-error');
-        inputEmailErrorMessage.style.display = "block";
+        inputEmailErrorMessage.style.display = "inline-block";
     }
     else {
         inputEmail.classList.remove('form-error');
@@ -334,7 +336,7 @@ inputEmail.addEventListener('keyup', (e) => {
 var inputMobile = document.getElementById('form-mobile');
 var inputMobileErrorMessage = document.getElementById('form-mobile-error');
 inputMobile.addEventListener('keyup', (e) => {
-    let regex = /^\+91[ -]?[\d]{10}/g;
+    let regex = /^\+91[ -]?[\d]{10}$/g;
     if (!regex.test(e.target.value)) {
         inputMobile.classList.add('form-error');
         inputMobileErrorMessage.style.display = "block";

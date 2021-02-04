@@ -34,19 +34,28 @@
 
         <!--Contact Display-->
         <div id="contact-selected">
-
-            <h1 id="selected-name"></h1>
             <input id="selected-id" type="hidden" value="NaN">
-            <div id="selected-buttons">
-                <button id="selected-edit">
-                    <img src="res/Edit-icon.png" alt="Edit">
-                    EDIT
-                </button>
-                <button id="selected-delete">
-                    <img src="res/delete1.png" alt="Delete">
-                    DELETE
-                </button>
+
+            <div class="selected-row">
+                <div class="selected-col-name">
+                    <h1 id="selected-name"></h1>
+                </div>
+                <div class="selected-col-btn">
+                    <div id="selected-buttons">
+                        <button id="selected-edit">
+                            <img src="res/Edit-icon.png" alt="Edit">
+                            EDIT
+                        </button>
+                        <button id="selected-delete">
+                            <img src="res/delete1.png" alt="Delete">
+                            DELETE
+                        </button>
+                    </div>
+                </div>
             </div>
+            
+
+            
 
             <p id="selected-email">Email: <span></span></p>
 
@@ -60,26 +69,31 @@
         </div>
 
         <!--Form-->
-        <form id="form">
+        <form id="form" autocomplete="off">
 
             <label for="form-name">Name</label>
-            <br>
+
             <input type="text" name="name" id="form-name" required>
             <small id="form-name-error">Names can only contain alphabets</small>
-            <br>
+
             <label for="form-email">Email</label>
-            <br>
+
             <input type="email" name="email" id="form-email" required>
             <small id="form-email-error">Enter valid email id</small>
-            <br>
-            <label id="form-mobile-label" for="form-mobile">Mobile</label>
-            <label id="form-landline-label" for="form-landline">Landline</label>
-            <br>
-            <input type="tel" name="mobile" id="form-mobile" required>
-            <small id="form-mobile-error">Mobile numbers must start with +91 followed by 10 digits</small>
 
 
-            <input type="tel" name="landline" id="form-landline" required>
+
+            <div class="form-row">
+                <div class="form-col-mob">
+                    <label id="form-mobile-label" for="form-mobile">Mobile</label>
+                    <input type="tel" name="mobile" id="form-mobile" required>
+                    <small id="form-mobile-error">Mobile numbers must start with +91 followed by 10 digits</small>
+                </div>
+                <div class="form-col-landline">
+                    <label id="form-landline-label" for="form-landline">Landline</label>
+                    <input type="tel" name="landline" id="form-landline" required>
+                </div>
+            </div>
 
             <label for="form-website">Website</label>
             <input type="url" name="website" id="form-website" required>
