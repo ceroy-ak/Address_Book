@@ -1,5 +1,3 @@
-//sdsd aaaa
-
 class Contact {
     //Private Static id for Unique Identifier
     static id = 0;
