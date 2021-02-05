@@ -97,40 +97,40 @@ input[type='submit']{
 
 /*Selected Contact Display*/
 
-#contact-selected{
+#contactSelected{
     display: none;
     width: 60%;
     float: left;
     margin-left: 90px;
 }
 
-#selected-name{
+#selectedName{
     word-wrap: break-word;
 }
 
 
-#selected-edit {
+#selectedEdit {
     background-color: white;
     border: 0px;
     font-size: 15px;
     padding: 0px 30px 0px 5px;
 }
 
-#selected-edit > img {
+#selectedEdit > img {
     height: 18px;
     width: 15px;
     position: relative;
     top: 3px;
 }
 
-#selected-delete{
+#selectedDelete{
     background-color: white;
     border: 0px;
     font-size: 15px;
     padding: 0px 30px 0px 5px;
 }
 
-#selected-delete > img {
+#selectedDelete > img {
     height: 25px;
     width: 15px;
     position: relative;
@@ -139,23 +139,23 @@ input[type='submit']{
     
 }
 
-#selected-email{
+#selectedEmail{
     padding: 15px 0px 20px 0px;
     word-wrap: break-word;
 
 }
 
-#selected-website {
+#selectedWebsite {
     padding: 25px 0px;
     word-wrap: break-word;
 }
 
-#selected-address-parent{
+#selectedAddressParent{
     width: min-content;
     float: left;
 
 }
-#selected-address {
+#selectedAddress {
     width: 30%;
     margin-left: 7%;
     word-wrap: break-word;
@@ -206,7 +206,7 @@ input[type='submit']{
 }
 
 
-#form-address {
+#formAddress {
     border: 1px solid black;
     height: 80px !important;
     resize: none;
@@ -217,34 +217,34 @@ input[type='submit']{
 }
 
 
-#form-name-error{
+#formNameError{
     color: red;
     display: none;
 }
-#form-email-error{
+#formEmailError{
     color: red;
     display: none;
 }
 
-#form-mobile-error{
+#formMobileError{
     color: red;
     width: 100%;
     display: none;
 }
 
-#form-website-error{
+#formWebsiteError{
     color: red;
     display: none;
 }
 
-#form-submit-btn {
+#formSubmitBtn {
     background-color: green;
     color: white;
     width: 20% !important;
     float: right;
 }
 
-#form-cancel-btn {
+#formCancelBtn {
     background-color: red;
     color: white;
     width: 20%;
@@ -271,21 +271,21 @@ input[type='submit']{
     margin-right: 10%;
     
 }
-#form-mobile {
+#formMobile {
     border: 1px solid black;
     height: 30px;
     width: 80%;
 
 }
 
-#form-landline {
+#formLandline {
     border: 1px solid black;
     height: 30px;
     width: 80%;
 
 }
 
-#form-mobile-label {
+#formMobileLabel {
     font-weight: bold;
     display: block;
     padding-bottom: 3px;
@@ -293,7 +293,7 @@ input[type='submit']{
 
 }
 
-#form-landline-label{
+#formLandlineLabel{
     font-weight: bold;
     display: block;
     padding-bottom: 3px;

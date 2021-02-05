@@ -34,20 +34,20 @@
         <div class="contacts-list"></div>
 
         <!--Contact Display-->
-        <div id="contact-selected">
-            <input id="selected-id" type="hidden" value="NaN">
+        <div id="contactSelected">
+            <input id="selectedId" type="hidden" value="NaN">
 
             <div class="selected-row">
                 <div class="selected-col-name">
-                    <h1 id="selected-name"></h1>
+                    <h1 id="selectedName"></h1>
                 </div>
                 <div class="selected-col-btn">
-                    <div id="selected-buttons">
-                        <button id="selected-edit">
+                    <div id="selectedButtons">
+                        <button id="selectedEdit">
                             <img src="res/Edit-icon.png" alt="Edit">
                             EDIT
                         </button>
-                        <button id="selected-delete">
+                        <button id="selectedDelete">
                             <img src="res/delete1.png" alt="Delete">
                             DELETE
                         </button>
@@ -58,54 +58,54 @@
 
 
 
-            <p id="selected-email">Email: <span></span></p>
+            <p id="selectedEmail">Email: <span></span></p>
 
-            <p id="selected-mobile">Mobile: <span></span></p>
+            <p id="selectedMobile">Mobile: <span></span></p>
 
-            <p id="selected-landline">Landline: <span></span></p>
+            <p id="selectedLandline">Landline: <span></span></p>
 
-            <p id="selected-website">Website: <span></span></p>
+            <p id="selectedWebsite">Website: <span></span></p>
 
-            <p id="selected-address-parent">Address: <p id="selected-address"></p></p>
+            <p id="selectedAddressParent">Address: <p id="selectedAddress"></p></p>
         </div>
 
         <!--Form-->
         <form id="form">
 
-            <label for="form-name">Name</label>
+            <label for="formName">Name</label>
 
-            <input type="text" name="name" id="form-name" required>
-            <small id="form-name-error">Names can only contain alphabets</small>
+            <input type="text" name="name" id="formName" required>
+            <small id="formNameError">Names can only contain alphabets</small>
 
-            <label for="form-email">Email</label>
+            <label for="formEmail">Email</label>
 
-            <input type="email" name="email" id="form-email" required>
-            <small id="form-email-error">Enter valid email id</small>
+            <input type="email" name="email" id="formEmail" required>
+            <small id="formEmailError">Enter valid email id</small>
 
 
 
             <div class="form-row">
                 <div class="form-col-mob">
-                    <label id="form-mobile-label" for="form-mobile">Mobile</label>
-                    <input type="tel" name="mobile" id="form-mobile" required>
-                    <small id="form-mobile-error">Mobile numbers must start with +91 followed by 10 digits</small>
+                    <label id="formMobileLabel" for="formMobile">Mobile</label>
+                    <input type="tel" name="mobile" id="formMobile" required>
+                    <small id="formMobileError">Mobile numbers must start with +91 followed by 10 digits</small>
                 </div>
                 <div class="form-col-landline">
-                    <label id="form-landline-label" for="form-landline">Landline</label>
-                    <input type="tel" name="landline" id="form-landline" required>
+                    <label id="formLandlineLabel" for="formLandline">Landline</label>
+                    <input type="tel" name="landline" id="formLandline" required>
                 </div>
             </div>
 
-            <label for="form-website">Website</label>
-            <input type="url" name="website" id="form-website" required>
-            <small id="form-website-error">Enter valid url eg. https://www.google.com</small>
+            <label for="formWebsite">Website</label>
+            <input type="url" name="website" id="formWebsite" required>
+            <small id="formWebsiteError">Enter valid url eg. https://www.google.com</small>
 
-            <label for="form-address">Address</label>
-            <textarea name="address" id="form-address" cols="83" rows="20"></textarea>
+            <label for="formAddress">Address</label>
+            <textarea name="address" id="formAddress" cols="83" rows="20"></textarea>
 
-            <input type="hidden" id="form-id" value="">
-            <button type="button" id="form-cancel-btn">Cancel</button>
-            <input type="submit" value="Add" id="form-submit-btn">
+            <input type="hidden" id="formId" value="">
+            <button type="button" id="formCancelBtn">Cancel</button>
+            <input type="submit" value="Add" id="formSubmitBtn">
         </form>
 
     </main>

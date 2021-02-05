@@ -178,20 +178,19 @@ function selectedContact(id) {
 function displaySelectedContact(contact) {
 
     //Getting the reference from the DOM
-    const name = document.getElementById('selected-name');
-    const email = document.getElementById('selected-email').lastChild;
-    const mobile = document.getElementById('selected-mobile').lastChild;
-    const landline = document.getElementById('selected-landline').lastChild;
-    const website = document.getElementById('selected-website').lastChild;
-    const address = document.getElementById('selected-address');
-    const id = document.getElementById('selected-id');
+    const name = document.getElementById('selectedName');
+    const email = document.getElementById('selectedEmail').lastChild;
+    const mobile = document.getElementById('selectedMobile').lastChild;
+    const landline = document.getElementById('selectedLandline').lastChild;
+    const website = document.getElementById('selectedWebsite').lastChild;
+    const address = document.getElementById('selectedAddress');
+    const id = document.getElementById('selectedId');
 
-    console.log(address);
     //Removing the visibility of the form
     document.getElementById('form').style.display = "none";
 
     //Getting the reference and displaying the contact in the center page by changing the values in the DOM
-    const div = document.getElementById('contact-selected');
+    const div = document.getElementById('contactSelected');
 
     div.style.display = "block";
     name.innerText = contact.name;
@@ -208,14 +207,14 @@ function displaySelectedContact(contact) {
 function contactDetailsForm(id) {
 
     //Reference to all the input fields
-    const formName = document.getElementById('form-name');
-    const formEmail = document.getElementById('form-email');
-    const formMobile = document.getElementById('form-mobile');
-    const formLandline = document.getElementById('form-landline');
-    const formWebsite = document.getElementById('form-website');
-    const formAddress = document.getElementById('form-address');
-    const formId = document.getElementById('form-id');
-    const formSubmitBtn = document.getElementById('form-submit-btn');
+    const formName = document.getElementById('formName');
+    const formEmail = document.getElementById('formEmail');
+    const formMobile = document.getElementById('formMobile');
+    const formLandline = document.getElementById('formLandline');
+    const formWebsite = document.getElementById('formWebsite');
+    const formAddress = document.getElementById('formAddress');
+    const formId = document.getElementById('formId');
+    const formSubmitBtn = document.getElementById('formSubmitBtn');
 
     //To prevent submit event because of enter key
     formName.onkeypress = (e) => e.key != "Enter";
@@ -229,10 +228,10 @@ function contactDetailsForm(id) {
 
 
     // Remove display for all errors and input box errors by removing form-error class in form if any
-    document.getElementById('form-name-error').style.display = "none";
-    document.getElementById('form-email-error').style.display = "none";
-    document.getElementById('form-mobile-error').style.display = "none";
-    document.getElementById('form-website-error').style.display = "none";
+    document.getElementById('formNameError').style.display = "none";
+    document.getElementById('formEmailError').style.display = "none";
+    document.getElementById('formMobileError').style.display = "none";
+    document.getElementById('formWebsiteError').style.display = "none";
     formName.classList.remove('form-error');
     formEmail.classList.remove('form-error');
     formMobile.classList.remove('form-error');
@@ -291,63 +290,52 @@ var homeBtn = document.getElementById('home').addEventListener('click', (e) => {
     selectedContact(NaN);
 
     //Makes the form and the selected contact invisible
-    document.getElementById('contact-selected').style.display = "none";
+    document.getElementById('contactSelected').style.display = "none";
     document.getElementById('form').style.display = "none";
 });
 
 
 //When delete button is selected from the contacts display
-var selectedDeleteBtn = document.getElementById('selected-delete').addEventListener('click', (e) => {
-    let id = document.getElementById('selected-id').value;
+var selectedDeleteBtn = document.getElementById('selectedDelete').addEventListener('click', (e) => {
+    let id = document.getElementById('selectedId').value;
     deleteContact(id);
-    document.getElementById('contact-selected').style.display = "none";
+    document.getElementById('contactSelected').style.display = "none";
     document.getElementById('form').style.display = "none";
 });
 
 //When add button is clicked from the navigation bar
 var addBtn = document.getElementById('add').addEventListener('click', (e) => {
-    document.getElementById('contact-selected').style.display = "none";
+    document.getElementById('contactSelected').style.display = "none";
     document.getElementById('form').style.display = "block";
     contactDetailsForm();
 });
 
 //When edit button is selected from the contacts display
-var selectedEditBtn = document.getElementById('selected-edit').addEventListener('click', (e) => {
-    let id = document.getElementById('selected-id').value;
+var selectedEditBtn = document.getElementById('selectedEdit').addEventListener('click', (e) => {
+    let id = document.getElementById('selectedId').value;
     contactDetailsForm(id);
-    document.getElementById('contact-selected').style.display = "none";
+    document.getElementById('contactSelected').style.display = "none";
     document.getElementById('form').style.display = "block";
 });
 
 //When cancel button is clicked within the form
-var cancelButtonForm = document.getElementById('form-cancel-btn').addEventListener('click', (e) => {
+var cancelButtonForm = document.getElementById('formCancelBtn').addEventListener('click', (e) => {
     document.getElementById('home').click();
 });
-
-
-/*Form Validation Valid Keyup check*/
-function validKeyUp(keycode) {
-    if ((keycode >= 48 && keycode <= 57) || (keycode >= 65 && keycode <= 90) || (keycode >= 96 && keycode <= 111) || (keycode >= 186 && keycode <= 222)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 
 
 /*Form Validation for Name */
 
 //Reference of the input field
-var inputName = document.getElementById('form-name');
+var inputName = document.getElementById('formName');
 
 //Reference of the element that displays error
-var inputNameErrorMessage = document.getElementById('form-name-error');
+var inputNameErrorMessage = document.getElementById('formNameError');
 
 //Eventlistener Keyup to validate input on each key up
 inputName.addEventListener('keyup', (e) => {
 
-    if (validKeyUp(e.keyCode)) {
+    if (e.target.value!='') {
         //Regular Expression
         let regex = /^[a-zA-Z\s]+$/g;
         if (!regex.test(e.target.value)) {
@@ -365,15 +353,15 @@ inputName.addEventListener('keyup', (e) => {
 /*Form Validation for Emails */
 
 //Refernce to the input field
-var inputEmail = document.getElementById('form-email');
+var inputEmail = document.getElementById('formEmail');
 
 //Reference to the element that shows the error
-var inputEmailErrorMessage = document.getElementById('form-email-error');
+var inputEmailErrorMessage = document.getElementById('formEmailError');
 
 //Eventlistener Keyup to validate input on each key up
 inputEmail.addEventListener('keyup', (e) => {
 
-    if (validKeyUp(e.keyCode)) {
+    if (e.target.value!='') {
         //Regular Expression
         let regex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}/g;
         if (!regex.test(e.target.value)) {
@@ -390,14 +378,14 @@ inputEmail.addEventListener('keyup', (e) => {
 /*Form Validation for Mobile number */
 
 //Refernce to the input field
-var inputMobile = document.getElementById('form-mobile');
+var inputMobile = document.getElementById('formMobile');
 
 //Reference to the element that shows the error
-var inputMobileErrorMessage = document.getElementById('form-mobile-error');
+var inputMobileErrorMessage = document.getElementById('formMobileError');
 
 //Eventlistener Keyup to validate input on each key up
 inputMobile.addEventListener('keyup', (e) => {
-    if (validKeyUp(e.keyCode)) {
+    if (e.target.value!='') {
         //Regular Expression
         let regex = /^\+91[ -]?[\d]{10}$/g;
         if (!regex.test(e.target.value)) {
@@ -415,14 +403,14 @@ inputMobile.addEventListener('keyup', (e) => {
 /*Form validation for Website*/
 
 //Refernce to the input field
-var inputWebsite = document.getElementById('form-website');
+var inputWebsite = document.getElementById('formWebsite');
 
 //Reference to the element that shows the error
-var inputWebsiteErrorMessage = document.getElementById('form-website-error');
+var inputWebsiteErrorMessage = document.getElementById('formWebsiteError');
 
 //Eventlistener Keyup to validate input on each key up
 inputWebsite.addEventListener('keyup', (e) => {
-    if (validKeyUp(e.keyCode)) {
+    if (e.target.value!='') {
         //Regular Expression
         let regex = /^(https|http):\/\/[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z]+$/g;
         if (!regex.test(e.target.value)) {
