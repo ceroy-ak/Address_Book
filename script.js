@@ -25,6 +25,7 @@ var contacts = new Array(
 //Adds the data to the contacts array and calls the displayContactList() function
 function addContact(contact) {
     contacts.push(contact);
+    alert('Contact Saved :)')
     displayContactList(contact);
 }
 
@@ -33,9 +34,8 @@ function addContact(contact) {
 function editContact(newContact, oldId) {
 
     //Updates the contact in contacts array
-    for(var i=0; i<contacts.length; i++)
-    {
-        if(contacts[i].id == oldId){
+    for (var i = 0; i < contacts.length; i++) {
+        if (contacts[i].id == oldId) {
             contacts[i].name = newContact.name;
             contacts[i].email = newContact.email;
             contacts[i].mobile = newContact.mobile;
@@ -60,6 +60,7 @@ function editContact(newContact, oldId) {
     Contact.id--;
 
     selectedContact(NaN);
+    alert('Contact Updated :)');
 }
 
 //Deletes the data by filtering the contacts array and removing the element from the DOM
@@ -71,6 +72,7 @@ function deleteContact(id) {
     let contact = document.getElementById(id);
     let parent = contact.parentNode;
     parent.removeChild(contact);
+    alert('Contact Deleted :| ');
 
 }
 
@@ -214,13 +216,13 @@ function contactDetailsForm(id) {
     const formSubmitBtn = document.getElementById('form-submit-btn');
 
     //To prevent submit event because of enter key
-    formName.onkeypress = (e) => e.key!="Enter";
-    formEmail.onkeypress = (e) => e.key!="Enter";
-    formMobile.onkeypress = (e) => e.key!="Enter";
-    formLandline.onkeypress = (e) => e.key!="Enter";
-    formWebsite.onkeypress = (e) => e.key!="Enter";
-    formAddress.onkeypress = (e) => e.key!="Enter";
-    
+    formName.onkeypress = (e) => e.key != "Enter";
+    formEmail.onkeypress = (e) => e.key != "Enter";
+    formMobile.onkeypress = (e) => e.key != "Enter";
+    formLandline.onkeypress = (e) => e.key != "Enter";
+    formWebsite.onkeypress = (e) => e.key != "Enter";
+    formAddress.onkeypress = (e) => e.key != "Enter";
+
 
 
 
@@ -312,35 +314,10 @@ var selectedEditBtn = document.getElementById('selected-edit').addEventListener(
 });
 
 //When cancel button is clicked within the form
-var cancelButtonForm = document.getElementById('form-cancel-btn').addEventListener('click',(e)=>{
+var cancelButtonForm = document.getElementById('form-cancel-btn').addEventListener('click', (e) => {
     document.getElementById('home').click();
 });
 
-
-/* Form Submit Event Listener */
-var form = document.getElementById('form').addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    let nameVal = e.target[0].value;
-    let emailVal = e.target[1].value;
-    let mobileVal = e.target[2].value;
-    let landlineVal = e.target[3].value;
-    let websiteVal = e.target[4].value;
-    let addressVal = e.target[5].value;
-    let idVal = e.target[6].value;
-
-    let newContact = new Contact(nameVal, emailVal, mobileVal, landlineVal, websiteVal, addressVal);
-
-    //Input type hidden contains the id. When id is none means new contact is added else existing contact is updated
-    if (idVal == '') {
-        addContact(newContact);
-    }
-    else {
-        editContact(newContact, idVal);
-    }
-
-    e.target.style.display = "none";
-});
 
 
 /*Form Validation for Name */
@@ -435,3 +412,58 @@ inputWebsite.addEventListener('keyup', (e) => {
         inputWebsiteErrorMessage.style.display = "none";
     }
 });
+
+/* Form Submit Event Listener */
+var form = document.getElementById('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    //Checks if any of the errors are visible by checking the input fields if they have any form-error class
+    let formValidation = true;
+
+    if (inputName.classList.contains('form-error')
+        || inputMobile.classList.contains('form-error')
+        || inputEmail.classList.contains('form-error')
+        || inputWebsite.classList.contains('form-error')
+    ) {
+        formValidation = false;
+    }
+
+
+    if (formValidation) {
+
+        //If form validation is all good then getting all values from the form
+        let nameVal = e.target[0].value;
+        let emailVal = e.target[1].value;
+        let mobileVal = e.target[2].value;
+        let landlineVal = e.target[3].value;
+        let websiteVal = e.target[4].value;
+        let addressVal = e.target[5].value;
+        let idVal = e.target[6].value;
+
+        let newContact = new Contact(nameVal, emailVal, mobileVal, landlineVal, websiteVal, addressVal);
+
+        //Boolean Variable to check if new contact is being added
+        //Input type hidden contains the id. When id is none means new contact is added else existing contact is updated
+        let addContactBool = (idVal == '');
+
+
+        //If new contact then addContact is called else editContact is called
+        if (addContactBool) {
+            if (confirm("Do you want to add this contact?")) {
+                addContact(newContact);
+                e.target.style.display = "none";
+            }
+        }
+        else {
+            if (confirm('Do you want to update this contact?')) {
+                editContact(newContact, idVal);
+                e.target.style.display = "none";
+            }
+        }
+    }
+    else {
+        alert('Some of your fields doesnt have valid inputs :( ')
+    }
+});
+
+
