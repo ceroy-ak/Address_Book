@@ -25,7 +25,7 @@ var contacts = new Array(
 //Adds the data to the contacts array and calls the displayContactList() function
 function addContact(contact) {
     contacts.push(contact);
-    alert('Contact Saved :)')
+
     displayContactList(contact);
 }
 
@@ -60,19 +60,20 @@ function editContact(newContact, oldId) {
     Contact.id--;
 
     selectedContact(NaN);
-    alert('Contact Updated :)');
+
 }
 
 //Deletes the data by filtering the contacts array and removing the element from the DOM
 function deleteContact(id) {
-    contacts = contacts.filter((contact) => {
-        return contact.id != id;
-    });
+    if (confirm('Are you sure, you want to delete?')) {
+        contacts = contacts.filter((contact) => {
+            return contact.id != id;
+        });
 
-    let contact = document.getElementById(id);
-    let parent = contact.parentNode;
-    parent.removeChild(contact);
-    alert('Contact Deleted :| ');
+        let contact = document.getElementById(id);
+        let parent = contact.parentNode;
+        parent.removeChild(contact);
+    }
 
 }
 
@@ -182,9 +183,10 @@ function displaySelectedContact(contact) {
     const mobile = document.getElementById('selected-mobile').lastChild;
     const landline = document.getElementById('selected-landline').lastChild;
     const website = document.getElementById('selected-website').lastChild;
-    const address = document.getElementById('selected-address').lastChild;
+    const address = document.getElementById('selected-address');
     const id = document.getElementById('selected-id');
 
+    console.log(address);
     //Removing the visibility of the form
     document.getElementById('form').style.display = "none";
 
@@ -221,16 +223,20 @@ function contactDetailsForm(id) {
     formMobile.onkeypress = (e) => e.key != "Enter";
     formLandline.onkeypress = (e) => e.key != "Enter";
     formWebsite.onkeypress = (e) => e.key != "Enter";
-    formAddress.onkeypress = (e) => e.key != "Enter";
+    // formAddress.onkeypress = (e) => e.key != "Enter";
 
 
 
 
-    // Remove display for all errors in form if any
+    // Remove display for all errors and input box errors by removing form-error class in form if any
     document.getElementById('form-name-error').style.display = "none";
     document.getElementById('form-email-error').style.display = "none";
     document.getElementById('form-mobile-error').style.display = "none";
     document.getElementById('form-website-error').style.display = "none";
+    formName.classList.remove('form-error');
+    formEmail.classList.remove('form-error');
+    formMobile.classList.remove('form-error');
+    formWebsite.classList.remove('form-error');
 
 
     //Initial Values for Add
@@ -319,6 +325,16 @@ var cancelButtonForm = document.getElementById('form-cancel-btn').addEventListen
 });
 
 
+/*Form Validation Valid Keyup check*/
+function validKeyUp(keycode) {
+    if ((keycode >= 48 && keycode <= 57) || (keycode >= 65 && keycode <= 90) || (keycode >= 96 && keycode <= 111) || (keycode >= 186 && keycode <= 222)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 
 /*Form Validation for Name */
 
@@ -331,16 +347,19 @@ var inputNameErrorMessage = document.getElementById('form-name-error');
 //Eventlistener Keyup to validate input on each key up
 inputName.addEventListener('keyup', (e) => {
 
-    //Regular Expression
-    let regex = /^[a-zA-Z\s]+$/g;
-    if (!regex.test(e.target.value)) {
-        inputName.classList.add('form-error');
-        inputNameErrorMessage.style.display = "inline-block";
+    if (validKeyUp(e.keyCode)) {
+        //Regular Expression
+        let regex = /^[a-zA-Z\s]+$/g;
+        if (!regex.test(e.target.value)) {
+            inputName.classList.add('form-error');
+            inputNameErrorMessage.style.display = "inline-block";
+        }
+        else {
+            inputName.classList.remove('form-error');
+            inputNameErrorMessage.style.display = "none";
+        }
     }
-    else {
-        inputName.classList.remove('form-error');
-        inputNameErrorMessage.style.display = "none";
-    }
+
 });
 
 /*Form Validation for Emails */
@@ -354,15 +373,17 @@ var inputEmailErrorMessage = document.getElementById('form-email-error');
 //Eventlistener Keyup to validate input on each key up
 inputEmail.addEventListener('keyup', (e) => {
 
-    //Regular Expression
-    let regex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}/g;
-    if (!regex.test(e.target.value)) {
-        inputEmail.classList.add('form-error');
-        inputEmailErrorMessage.style.display = "inline-block";
-    }
-    else {
-        inputEmail.classList.remove('form-error');
-        inputEmailErrorMessage.style.display = "none";
+    if (validKeyUp(e.keyCode)) {
+        //Regular Expression
+        let regex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}/g;
+        if (!regex.test(e.target.value)) {
+            inputEmail.classList.add('form-error');
+            inputEmailErrorMessage.style.display = "inline-block";
+        }
+        else {
+            inputEmail.classList.remove('form-error');
+            inputEmailErrorMessage.style.display = "none";
+        }
     }
 });
 
@@ -376,16 +397,17 @@ var inputMobileErrorMessage = document.getElementById('form-mobile-error');
 
 //Eventlistener Keyup to validate input on each key up
 inputMobile.addEventListener('keyup', (e) => {
-
-    //Regular Expression
-    let regex = /^\+91[ -]?[\d]{10}$/g;
-    if (!regex.test(e.target.value)) {
-        inputMobile.classList.add('form-error');
-        inputMobileErrorMessage.style.display = "block";
-    }
-    else {
-        inputMobile.classList.remove('form-error');
-        inputMobileErrorMessage.style.display = "none";
+    if (validKeyUp(e.keyCode)) {
+        //Regular Expression
+        let regex = /^\+91[ -]?[\d]{10}$/g;
+        if (!regex.test(e.target.value)) {
+            inputMobile.classList.add('form-error');
+            inputMobileErrorMessage.style.display = "block";
+        }
+        else {
+            inputMobile.classList.remove('form-error');
+            inputMobileErrorMessage.style.display = "none";
+        }
     }
 });
 
@@ -400,16 +422,17 @@ var inputWebsiteErrorMessage = document.getElementById('form-website-error');
 
 //Eventlistener Keyup to validate input on each key up
 inputWebsite.addEventListener('keyup', (e) => {
-
-    //Regular Expression
-    let regex = /^(https|http):\/\/[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z]+$/g;
-    if (!regex.test(e.target.value)) {
-        inputWebsite.classList.add('form-error');
-        inputWebsiteErrorMessage.style.display = "block";
-    }
-    else {
-        inputWebsite.classList.remove('form-error');
-        inputWebsiteErrorMessage.style.display = "none";
+    if (validKeyUp(e.keyCode)) {
+        //Regular Expression
+        let regex = /^(https|http):\/\/[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z]+$/g;
+        if (!regex.test(e.target.value)) {
+            inputWebsite.classList.add('form-error');
+            inputWebsiteErrorMessage.style.display = "block";
+        }
+        else {
+            inputWebsite.classList.remove('form-error');
+            inputWebsiteErrorMessage.style.display = "none";
+        }
     }
 });
 
@@ -449,16 +472,16 @@ var form = document.getElementById('form').addEventListener('submit', (e) => {
 
         //If new contact then addContact is called else editContact is called
         if (addContactBool) {
-            if (confirm("Do you want to add this contact?")) {
-                addContact(newContact);
-                e.target.style.display = "none";
-            }
+
+            addContact(newContact);
+            e.target.style.display = "none";
+
         }
         else {
-            if (confirm('Do you want to update this contact?')) {
-                editContact(newContact, idVal);
-                e.target.style.display = "none";
-            }
+
+            editContact(newContact, idVal);
+            e.target.style.display = "none";
+
         }
     }
     else {

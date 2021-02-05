@@ -24,10 +24,11 @@
 
             <img src="res/blog-icon.png" alt="Blog Icon">
         </div>
+        <!--Heading-->
+        <h4 id="heading">CONTACTS</h4>
     </header>
 
-    <!--Heading-->
-    <h4 id="heading">CONTACTS</h4>
+
     <main>
         <!--Contacts List-->
         <div class="contacts-list"></div>
@@ -53,9 +54,9 @@
                     </div>
                 </div>
             </div>
-            
 
-            
+
+
 
             <p id="selected-email">Email: <span></span></p>
 
@@ -65,11 +66,11 @@
 
             <p id="selected-website">Website: <span></span></p>
 
-            <p id="selected-address">Address: <span></span></p>
+            <p id="selected-address-parent">Address: <p id="selected-address"></p></p>
         </div>
 
         <!--Form-->
-        <form id="form" autocomplete="off">
+        <form id="form">
 
             <label for="form-name">Name</label>
 
@@ -100,7 +101,7 @@
             <small id="form-website-error">Enter valid url eg. https://www.google.com</small>
 
             <label for="form-address">Address</label>
-            <textarea name="address" id="form-address" cols="84" rows="20"></textarea>
+            <textarea name="address" id="form-address" cols="83" rows="20"></textarea>
 
             <input type="hidden" id="form-id" value="">
             <button type="button" id="form-cancel-btn">Cancel</button>
