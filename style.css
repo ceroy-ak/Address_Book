@@ -85,10 +85,23 @@ input[type='submit']{
     font-family: 'system-ui';
     font-weight: 400;
     padding-bottom: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 32px;
 }
 
-.contact .email {
+.contact > .name:hover{
+    overflow: visible;
+}
+
+.contact > .email {
     margin-left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.contact > .email:hover{
+    overflow: visible;
 }
 
 .contact .mobile {
@@ -153,6 +166,7 @@ input[type='submit']{
 #selectedAddressParent{
     width: min-content;
     float: left;
+    height: 35vh;
 
 }
 #selectedAddress {
