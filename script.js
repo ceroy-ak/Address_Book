@@ -90,7 +90,7 @@ function displayContactList(param) {
             div.id = contact.id;
 
             //Contacts Div->h1 [name]
-            const name = document.createElement('pre');
+            const name = document.createElement('h1');
             name.className = "name";
             name.appendChild(document.createTextNode(contact.name));
             div.appendChild(name);

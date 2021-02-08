@@ -85,9 +85,9 @@ input[type='submit']{
     font-family: 'system-ui';
     font-weight: 400;
     padding-bottom: 5px;
+    white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-size: 32px;
 }
 
 .contact > .name:hover{
